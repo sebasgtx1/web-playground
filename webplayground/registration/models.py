@@ -10,8 +10,8 @@ class Profile(models.Model):
     bio = models.TextField(null=True, blank=True)
     link = models.URLField(max_length=200, null=True, blank=True)
 
-@receiver(post_save, sender=Profile)
-def ensure_profile_exists(sender, instace, **kwargs):
+@receiver(post_save, sender=User)
+def ensure_profile_exists(sender, instance, **kwargs):
     if kwargs.get('created', False):
-        Profile.objects.get_or_create(user=instace)
+        Profile.objects.get_or_create(user=instance)
         print('User and linked profile created successfully')
