@@ -72,12 +72,17 @@
                   fetch(url, {'credentials' : 'include'})
                   .then(response => response.json())
                   .then(function(data){
+                    if (data.first) {
+                      window.location.href = '{% url 'messenger:detail' thread.pk %}'
+                    }
                     if (data.created){
                       var message = document.createElement('div');
                       message.classList.add('mine', 'mb-3');
                       message.innerHTML = '<small><i> few seconds ago</i></small><br>'+decodeURIComponent(content);
                       document.getElementById('thread').appendChild(message);
                       ScrollBottomInThread();
+
+                      
                     }
                 })
                 }
