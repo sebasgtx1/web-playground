@@ -1,6 +1,6 @@
 {% extends 'core/base.html' %}
 {% load static %}
-{% block title %}Hilo{% endblock %}
+{% block title %}Thread{% endblock %}
 {% block content %}
 <style>
   .avatar  { width:50px; height:50px; float:left; margin-right:10px; }
@@ -32,7 +32,7 @@
                       <!-- Mostramos la información del miembro --> 
                       <div>
                         <a href="{% url 'messenger:detail' thread.pk %}">{{user}}</a><br>
-                        <small><i>Hace {{thread.messages.last.created|timesince}}</i></small>
+                        <small><i>{{thread.messages.last.created|timesince}} ago</i></small>
                       </div>
                     {% endif %}
                   {% endfor %}
@@ -45,7 +45,7 @@
             <!-- Recorremos los miembros del hilo menos el propio request.user -->
             {% for user in thread.users.all %}
               {% if user != request.user %}       
-                <h4 class="mb-4">Mensajes con <a href="{% url 'profiles:detail' user %} ">{{user}}</a></h4>
+                <h4 class="mb-4">Messages with <a href="{% url 'profiles:detail' user %} ">{{user}}</a></h4>
               {% endif %}
             {% endfor %}
             <!-- Mostramos los mensajes en una capa que tiene un overflow vertical de 300 píxeles -->
@@ -53,7 +53,7 @@
               {% for message in object.messages.all %}
                 <!-- Dependiendo del usuario asignamos una clase con un color de fondo u otro en el mensaje -->
                 <div {% if request.user == message.user %}class="mine mb-3"{% else %}class="other mb-3"{% endif %}>
-                  <small><i>Hace {{thread.messages.last.created|timesince}}</i></small><br>
+                  <small><i>{{thread.messages.last.created|timesince}} ago</i></small><br>
                   {{message.content}}
                 </div>
               {% endfor %}
