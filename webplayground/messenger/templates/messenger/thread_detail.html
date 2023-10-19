@@ -59,6 +59,33 @@
               {% endfor %}
             </div>
             <!-- Aquí crearemos el formulario -->
+            <textarea id="content" class='form-control mb-2' rows='2' placeholder='Write your message here'></textarea>
+            <button id='send' class='btn btn-primary btn-sm btn-block' disabled>Send</button>
+            <script>
+              var send = document.getElementById('send')
+              send.addEventListener('click', function(){
+                var content = encodeURIComponent(document.getElementById('content').value);
+                if (content.length > 0) {
+                  const url = '{% url 'messenger:add' thread.pk %}' + '?content=' + content
+                  fetch(url, {'credentials' : 'include'})
+                  .then(response => response.json())
+                  .then(function(data){
+                    alert(data.created);
+                })
+                }
+                
+              })
+
+              //Event that actives the button if there is a message
+              var content = document.getElementById('content')
+              content.addEventListener('keyup', function(){
+                if (!this.checkValidity() || !this.value){
+                  send.disabled = true 
+                } else {
+                  send.disabled = false
+                }
+              })
+            </script>
           </div>
         </div>
     </div>
