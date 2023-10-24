@@ -65,9 +65,6 @@ git clone https://github.com/sebasgtx1/web-playground.git
 
 **Note:** Please configure the `EMAIL_HOST_USER` and `EMAIL_HOST_PASSWORD` components with a Hotmail account for email sending; otherwise, this functionality will not work.
 
-```shell
-   python manage.py runserver
-   ```
 **Example:**
 - `EMAIL_HOST_USER = 'your_hotmail@example.com'`
 - `EMAIL_HOST_PASSWORD = 'your_password'`
