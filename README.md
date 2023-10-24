@@ -1,3 +1,5 @@
+**Technologies:** Python (Django), HTML/CSS (Bootstrap)
+
 **Test User for Admin Panel (/admin):**
 
 - **User:** hector
