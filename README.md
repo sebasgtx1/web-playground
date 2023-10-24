@@ -1,3 +1,15 @@
+**Test User for Admin Panel (/admin):**
+
+- **User:** hector
+- **Password:** Test1234*
+
+**Super User for Admin Panel (/admin):**
+
+- **User:** SebasGTX1
+- **Password:** PWD0227**
+
+Note: You can use this user to test the CRUD operations for pages.
+
 ## Getting Your Project Up and Running
 
 **Requirements:**
