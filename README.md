@@ -31,7 +31,7 @@ git clone https://github.com/sebasgtx1/web-playground.git
 1. Access the project folder where the `manage.py` file is located. Run the following command:
 
    ```shell
-   cd web-playground/
+   cd webplayground/
    ```
 
 **Step 4: Perform Migrations**
