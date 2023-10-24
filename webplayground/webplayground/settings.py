@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-@z&^ta@*uy!b!3cr8=$i$#%xc8-qs9h6zc=+sa^^$!2hr-c00d'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -138,8 +138,11 @@ if DEBUG:
     EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
     EMAIL_FILE_PATH = os.path.join(BASE_DIR, 'sent_emails')
 else:
-    # configure production email
-    pass
+    EMAIL_HOST = 'smtp.office365.com'
+    EMAIL_PORT = 587 
+    EMAIL_USE_TLS = True  
+    EMAIL_HOST_USER = 'your_email@example.com' 
+    EMAIL_HOST_PASSWORD = 'your_password'
 
 #Media Files
 MEDIA_URL = '/media/'
